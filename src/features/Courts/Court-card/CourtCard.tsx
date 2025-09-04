@@ -2,12 +2,13 @@ import React from 'react';
 import { Card, Tag} from 'antd';
 import { useNavigate } from 'react-router-dom';
 import type { Court } from '../../../models/court.model';
+import { environment } from "../../../environment/environment";
 import './CourtCard.css';
 
 const { Meta } = Card;
 
 export const CourtCard: React.FC<Court> = (court) => {
-  const baseURL = 'http://localhost:3000';
+  const baseURL = environment.apiUrl;
   const navigate = useNavigate();
   
   const handleCardClick = () => {
