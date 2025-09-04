@@ -1,0 +1,84 @@
+/* CourtCard Styles */
+.court-card {
+  width: 300px;
+  margin: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.court-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.court-card .ant-card-cover img {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.court-card .ant-card-body {
+  padding: 20px;
+}
+
+.court-card .ant-card-meta-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.court-card .ant-card-meta-description {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.availability-section {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.availability-tag {
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 4px 12px;
+}
+
+.schedules-section {
+  margin-top: 16px;
+}
+
+.schedules-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.schedules-list {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.schedules-list .ant-list-item {
+  padding: 8px 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.schedules-list .ant-list-item:last-child {
+  border-bottom: none;
+}
+
+.schedule-day {
+  font-weight: 600;
+  color: #374151;
+  margin-right: 8px;
+}
+
+.schedule-time {
+  color: #6b7280;
+}

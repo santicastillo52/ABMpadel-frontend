@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getCourts } from "../../../api/courtsAPI";
 import { CourtCard } from "../Court-card/CourtCard";
 import type { Court } from "../../../models/court.model";
+import './CourtsContainer.css'
 
 export const CourtsContainer: React.FC = () => {
   const { isLoading, data: courts, isError, error } = useQuery({
@@ -16,7 +17,7 @@ export const CourtsContainer: React.FC = () => {
   if(!courts || !Array.isArray(courts)) {
     return <div>No hay canchas disponibles</div>
   }
-  return <div>
+  return <div className='courts-container'>
     {
         courts.map((court: Court)=>{
             return <CourtCard key={court.id}{...court}/>
