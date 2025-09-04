@@ -15,13 +15,13 @@ export const Header: React.FC = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                <Link className="nav-link " aria-current="page" to="/">Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/court-gestor">Gestor de canchas</Link>
+                <Link className="nav-link " to="/court-gestor">Crear Cancha</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/names">Names</Link>
+                <Link className="nav-link " to="/names">Names</Link>
               </li>
             </ul>
           </div>

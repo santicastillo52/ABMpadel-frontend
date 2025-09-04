@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Tag, List } from 'antd';
+import { Card, Tag} from 'antd';
 import { useNavigate } from 'react-router-dom';
 import type { Court } from '../../../models/court.model';
 import './CourtCard.css';
@@ -35,23 +35,7 @@ export const CourtCard: React.FC<Court> = (court) => {
       </div>
 
 
-      {court.schedules && court.schedules.length > 0 && (
-        <div className="schedules-section">
-          <h4 className="schedules-title">Horarios:</h4>
-          <List
-            size="small"
-            bordered
-            className="schedules-list"
-            dataSource={Object.entries(court.schedules[0])}
-            renderItem={([day, time]) => (
-              <List.Item>
-                <span className="schedule-day">{day}:</span>
-                <span className="schedule-time">{time}</span>
-              </List.Item>
-            )}
-          />
-        </div>
-      )}
+      
     </Card>
   );
 };

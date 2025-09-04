@@ -23,3 +23,16 @@ export const createCourt = async (court: FormData): Promise<Court> => {
     });
     return res.data;
 }
+
+export const updateCourt = async (id: number, court: FormData): Promise<Court> => {
+    const res = await courtsApi.put(`/court/${id}`, court, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+    });
+    return res.data;
+}
+
+export const deleteCourt = async (id: number): Promise<void> => {
+    await courtsApi.delete(`/court/${id}`);
+}

@@ -44,7 +44,7 @@ export const CourtForm: React.FC = () => {
             alert('Cancha creada');
         },
         onError: (error) => {
-            alert(`Error:${error}`);
+            alert(`Error: ${error}`);
         }
     });
 
@@ -77,7 +77,6 @@ export const CourtForm: React.FC = () => {
     const onSubmit = (values: CourtCreate) => {
         const formattedSchedules = formatSchedulesForBackend();
         
-        
         const imageInput = document.getElementById('court-image') as HTMLInputElement;
         const file = imageInput?.files?.[0];
         
@@ -88,12 +87,13 @@ export const CourtForm: React.FC = () => {
         formData.append("schedules", formattedSchedules);
 
         if (file) {
-            formData.append("image_url", file); 
+            formData.append("image_url", file);
         }
+        
         mutation.mutate(formData);
     }
 
-    const {handleChange, handleSubmit, errors, isValid, dirty} = useFormik({
+    const {handleChange, handleSubmit, errors, isValid, dirty, values} = useFormik({
         initialValues,
         onSubmit,
         validationSchema
@@ -114,6 +114,7 @@ export const CourtForm: React.FC = () => {
             id="name"
             placeholder="Nombre"
             name="name"
+            value={values.name}
             onChange={handleChange}
           />
           <small style={{ color: 'red' }}>
@@ -124,7 +125,8 @@ export const CourtForm: React.FC = () => {
 
         <div className="form-group">
           <label htmlFor="wall_type">Tipo de pared</label>
-          <select className="form-control" id="wall_type" name="wall_type" onChange={handleChange}>
+          <select className="form-control" id="wall_type" name="wall_type" value={values.wall_type} onChange={handleChange}>
+            <option value="">Seleccionar tipo de pared</option>
             <option value="acrylic">Acrílico</option>
             <option value="cement">Cemento</option>
           </select>
@@ -136,7 +138,8 @@ export const CourtForm: React.FC = () => {
 
         <div className="form-group">
           <label htmlFor="court_type">Tipo de cancha</label>
-          <select className="form-control" id="court_type" name="court_type" onChange={handleChange}>
+          <select className="form-control" id="court_type" name="court_type" value={values.court_type} onChange={handleChange}>
+            <option value="">Seleccionar tipo de cancha</option>
             <option value="indoor">Indoor</option>
             <option value="outdoor">Outdoor</option>
           </select>

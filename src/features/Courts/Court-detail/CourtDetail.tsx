@@ -1,11 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getCourt } from '../../../api/courtsAPI';
+import { List } from 'antd';
 
 export const CourtDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const courtId = id ? parseInt(id, 10) : null;
-  console.log(courtId)
+  const baseURL = 'http://localhost:3000';
   
   const { isLoading, data: court, isError, error } = useQuery({
     queryKey: ["court", courtId],
@@ -21,11 +23,43 @@ export const CourtDetail: React.FC = () => {
   
   return (
     <div>
+
       <h1>Detalle de la cancha {court.name}</h1>
-      {/* Aquí puedes usar los datos de court */}
       <p>Tipo: {court.court_type}</p>
       <p>Muro: {court.wall_type}</p>
-      {/* resto del componente */}
+      <img alt={court.name} src={baseURL + court.image_url} />
+      
+      <button 
+        onClick={() => navigate(`/court/${courtId}/edit`)}
+        style={{
+          backgroundColor: '#007bff',
+          color: 'white',
+          border: 'none',
+          padding: '0.5rem 1rem',
+          borderRadius: '4px',
+          cursor: 'pointer',
+          fontSize: '1rem'
+        }}
+      >
+        {court.schedules && court.schedules.length > 0 && (
+        <div className="schedules-section">
+          <h4 className="schedules-title">Horarios:</h4>
+          <List
+            size="small"
+            bordered
+            className="schedules-list"
+            dataSource={Object.entries(court.schedules[0])}
+            renderItem={([day, time]) => (
+              <List.Item>
+                <span className="schedule-day">{day}:</span>
+                <span className="schedule-time">{time}</span>
+              </List.Item>
+            )}
+          />
+        </div>
+      )}
+        Editar Cancha
+      </button>
     </div>
   );
 };
