@@ -80,7 +80,7 @@ export const CourtEdit: React.FC = () => {
     formData.append("name", values.name);
     formData.append("wall_type", values.wall_type);
     formData.append("court_type", values.court_type);
-    formData.append("schedules", court?.schedules || "");
+   
 
     if (file) {
       formData.append("image_url", file);
