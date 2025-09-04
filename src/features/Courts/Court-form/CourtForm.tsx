@@ -102,8 +102,8 @@ export const CourtForm: React.FC = () => {
 
 
   return (
-    <section className="court-form-page">
     <div className="court-form-container">
+      <h2>Crear Nueva Cancha</h2>
       <form onSubmit={handleSubmit}>
 
         <div className="form-group">
@@ -251,10 +251,7 @@ export const CourtForm: React.FC = () => {
           Agregar Cancha
         </button>
       </form>
-  
-
     </div>
-  </section>
   
   )
 };

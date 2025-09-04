@@ -1,8 +1,8 @@
 import axios from 'axios';
 import type { Court } from '../models/court.model';
-
+import { environment } from '../environment/environment';
 const courtsApi =  axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: environment.apiUrl
 });
 
 export const getCourts = async (): Promise<Court[]> => {

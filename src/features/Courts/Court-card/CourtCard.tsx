@@ -22,7 +22,7 @@ export const CourtCard: React.FC<Court> = (court) => {
     >
       <Meta
         title={court.name}
-        description={`Tipo de cancha: ${court.court_type} | Tipo de muro: ${court.wall_type}`}
+        description={`Tipo de cancha: ${court.court_type} | Tipo de pared: ${court.wall_type}`}
       />
 
 
